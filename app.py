@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import requests
+import os
 
 app = Flask(__name__)
+API_KEY = os.getenv("FLIGHT_API_KEY")
 API_KEY = "b14e5d900b501861bc654e9f32f43589"
 API_URL = "https://api.aviationstack.com/v1/flights"
 
