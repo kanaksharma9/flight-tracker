@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Flights</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Flight Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/track">Track Flights</a></li>
+                <li><a href="/map">Live Map</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="track-container">
+        <section class="search-box">
+            <h2>Track a Flight</h2>
+            <form method="post">
+                <label for="departure">Departure IATA Code:</label>
+                <input type="text" id="departure" name="departure" required>
+
+                <label for="arrival">Arrival IATA Code:</label>
+                <input type="text" id="arrival" name="arrival" required>
+
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        {% if flights %}
+        <section class="results">
+            <h3>Flight Results</h3>
+            <div class="flight-results">
+                {% for flight in flights %}
+                <div class="flight-card">
+                    <p><strong>Airline:</strong> {{ flight['airline']['name'] }}</p>
+                    <p><strong>Flight Number:</strong> {{ flight['flight']['iata'] }}</p>
+                    <p><strong>Status:</strong> {{ flight['flight_status'] }}</p>
+                    <p><strong>Departure:</strong> {{ flight['departure']['airport'] }} ({{ flight['departure']['iata'] }})</p>
+                    <p><strong>Arrival:</strong> {{ flight['arrival']['airport'] }} ({{ flight['arrival']['iata'] }})</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+</body>
+</html>

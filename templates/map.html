@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Flight Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Live Flight Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/track">Track Flights</a></li>
+                <li><a href="/map">Live Map</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="map-container">
+        <div id="map"></div>
+    </main>
+
+    <script>
+        var map = L.map('map').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        var flights = {{ flights | tojson | safe }};
+        flights.forEach(flight => {
+            if (flight.live && flight.live.latitude && flight.live.longitude) {
+                var marker = L.marker([flight.live.latitude, flight.live.longitude]).addTo(map);
+                marker.bindPopup(`<b>${flight.airline.name} ${flight.flight.iata}</b><br>
+                                  From: ${flight.departure.airport}<br>
+                                  To: ${flight.arrival.airport}<br>
+                                  Altitude: ${flight.live.altitude}m<br>
+                                  Speed: ${flight.live.speed_horizontal} km/h`);
+            }
+        });
+    </script>
+</body>
+</html>

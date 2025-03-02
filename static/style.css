@@ -1,0 +1,253 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e6e6fa, #ffffff);
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Glassmorphic Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px 30px;
+    width: 80%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar h1 {
+    font-size: 1.5em;
+    color: #6a0dad;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #4b0082;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.hero-text {
+    width: 50%;
+    text-align: left;
+    padding-left: 10%;
+}
+
+.hero-text h2 {
+    font-size: 2.5em;
+    color: #6a0dad;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hero-image {
+    width: 50%;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 80%;
+    max-width: 500px;
+    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.2));
+}
+
+/* Info Section */
+.info {
+    background: #fff;
+    padding: 50px;
+    margin-top: 50px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info h2 {
+    font-size: 2em;
+    color: #6a0dad;
+}
+
+.info p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin: 10px auto;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        width: 90%;
+        padding: 10px 20px;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .hero-text {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .info {
+        width: 90%;
+    }
+}
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #4B0082, #8A2BE2);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Track Page Styling */
+.track-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.search-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    width: 80%;
+    max-width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-box button {
+    background: #FFD700;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Flight Results */
+.results {
+    margin-top: 40px;
+    width: 90%;
+}
+
+.flight-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flight-card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Map Styling */
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#map {
+    height: 600px;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
